@@ -1,0 +1,29 @@
+#include !/sovereign-tts/mod/sov_objects
+
+sovereign_tts = {}
+
+function sovereign_tts.onLoadSovereign()
+  Tables.setTable("Table_Custom")
+  Tables.setCustomURL("http://bgfons.com/uploads/wood/wood%20_texture532.jpg")
+  Backgrounds.setCustomURL("https://cutewallpaper.org/21/tabletop-simulator-backgrounds/Shrek-Monopoly-Image-Assets-Tabletop-Simulator-Album-.jpg")
+  Lighting.ambient_intensity = 0
+  Lighting.light_intensity = .6
+
+  local fae = sov_objects.randomized_fae()
+  local realms = {}
+  local snaps = {}
+  for i = 1,6,1 do
+    snaps[i] = {
+      position = sov_objects.realmCoords[i],
+      rotation = sov_objects.realmRotations[i],
+    }
+    realms[i] = sov_objects.realm(fae[i], i)
+  end
+  Global.setSnapPoints(snaps)
+
+end
+
+--[[ The onUpdate event is called once per frame. --]]
+function onUpdateSovereign()
+    --[[ print('onUpdate loop!') --]]
+end
